@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zkboys.coolweather.R;
+import com.zkboys.coolweather.service.AutoUpdateService;
 import com.zkboys.coolweather.util.HttpCallbackListener;
 import com.zkboys.coolweather.util.HttpUtil;
 import com.zkboys.coolweather.util.LogUtil;
@@ -155,5 +156,7 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 }
